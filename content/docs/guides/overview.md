@@ -1,19 +1,18 @@
 ---
-title: Introduction
-subtitle: New to Cucumber? Start here!
+title: Introducción
+subtitle: Nuevo en Cucumber? ¡Empieza aquí!
 weight: 1000
 ---
-Cucumber is a tool that supports [Behaviour-Driven Development(BDD)](/docs/bdd).
-If you're new to Behaviour-Driven Development read our [BDD introduction](/docs/bdd)
-first.
+Cucumber es una herramienta que soporta [Behaviour-Driven Development(BDD, por sus siglas en inglés)](/docs/bdd), que se refiere al proceso de desarrollo guiado por comportamiento.
+Si el desarrollo guiado por comportamiento es nuevo para ti, lee nuestra [introducción a BDD](/docs/bdd) primero.
 
-# What is Cucumber?
-Ok, now that you know that BDD is about discovery, collaboration and examples
-(and not testing), let's take a look at Cucumber.
+# ¿Qué es Cucumber?
+Bien, ahora que sabes que BDD trata de descubrimiento, colaboración y ejemplos
+(y no pruebas), vamos a echar un vistazo a Cucumber.
 
-Cucumber reads executable specifications written in plain text and validates
-that the software does what those specifications say. The specifications
-consists of multiple *examples*, or *scenarios*. For example:
+Cucumber lee especificaciones ejecutables escritas en texto plano y valida
+que el software hace lo que la especificación dice. La especificación
+consiste en múltiples *ejemplos* o *escenarios*. Por ejemplo:
 
 ```gherkin
 Scenario: Breaker guesses a word
@@ -22,51 +21,51 @@ Scenario: Breaker guesses a word
   Then the Maker is asked to score
 ```
 
-Each scenario is a list of *steps* for Cucumber to work through. Cucumber
-verifies that the software conforms with the specification and generates a
-report indicating ✅ success or ❌ failure for each scenario.
+Cada escenario representa una lista de pasos que Cucumber debe seguir. Cucumber
+verifica que el software cumpla con la especificación y genera un
+reporte que indica  ✅ éxito o ❌ fracaso(success or failure) por cada escenario.
 
-In order for Cucumber to understand the scenarios, they must follow some basic
-syntax rules, called [Gherkin](/docs/gherkin/).
+Para que cucumber pueda entender los escenarios, estos deben seguir ciertas
+reglas de sintaxis básicas, llamadas [Gherkin](/docs/gherkin/).
 
-# What is Gherkin?
+# ¿Qué es Gherkin?
 
-Gherkin is a set of grammar rules that makes plain text structured enough for
-Cucumber to understand. The scenario above is written in Gherkin.
+Es un conjunto de reglas gramaticales que hacen al texto plano lo suficientemente estructurado
+para que Cucumber lo pueda entender. El escenario mostrado arriba está escrito en Gherkin.
 
-Gherkin serves multiple purposes:
+Gherkin sirve para múltiples propósitos:
 
-- Unambiguous executable specification
-- Automated testing using Cucumber
-- Document how the system *actually* behaves
+- Especificación ejecutable sin ambigüedades
+- Pruebas automatizadas utilizando Cucumber
+- Documentar cómo *actualmente* se comporta el sistema
 
 ![Single source of Truth](/img/single-source-of-truth-256x256.png)
 
-The Cucumber grammar exists in different flavours for many [spoken languages](/docs/gherkin/reference#spoken-languages)
-so that your team can use the keywords in your own language.
+La gramática de Cucumber existe en diferentes sabores para muchos [idiomas hablados](/docs/gherkin/reference#spoken-languages),
+así su equipo puede utilizar las palabras clave (keywords) en su propio idioma.
 
-Gherkin documents are stored in `.feature` text files and are typically
-versioned in source control alongside the software.
+Los documentos Gherkin son almacenados en archivos de texto con extensión `.feature` y son típicamente
+versionados junto con el software mediante control de código fuente.
 
-See the [Gherkin reference](/docs/gherkin) for more details.
+Mira la [referencia de Gherkin](/docs/gherkin) para más detalles.
 
-# What are Step Definitions?
+# ¿Qué son las definiciones de pasos?
 
-[Step definitions](/docs/cucumber/step-definitions) connect Gherkin steps to
-programming code. A step definition carries out the action that should be
-performed by the step. So step definitions hard-wire the specification to the
-implementation.
+[Las definiciones de pasos](/docs/cucumber/step-definitions) conectan los pasos de Gherkin
+con código de programación. Una definición de paso lleva a cabo la acción que debe
+realizar el paso. Entonces, las definiciones de pasos conectan la especificación
+con la implementación.
 
 ```
 ┌────────────┐                 ┌──────────────┐                 ┌───────────┐
-│   Steps    │                 │     Step     │                 │           │
-│ in Gherkin ├──matched with──>│ Definitions  ├───manipulates──>│  System   │
+│   Pasos    │                 │  Definición  │                 │           │
+│ en Gherkin ├──coincide con──>│   de Pasos   ├───-manipula──-->│  Sistema  │
 │            │                 │              │                 │           │
 └────────────┘                 └──────────────┘                 └───────────┘
 ```
 
-Step definitions can be written in many programming languages. Here is an example
-using JavaScript:
+Las definiciones de pasos pueden ser escritas en muchos lenguajes de programación.
+Aquí hay un ejemplo utilizando JavaScript:
 
 ```javascript
 When("{maker} starts a game", function(maker) {
