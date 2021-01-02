@@ -245,7 +245,7 @@ sharing state between hooks and step definitions.
 Promise style:
 
 ```javascript
-After(function () {
+Before(function () {
   return somethingReturningPromise()
 });
 ```
@@ -253,7 +253,7 @@ After(function () {
 Callback style:
 
 ```javascript
-After(function (callback) {
+Before(function (callback) {
   somethingCallingCallback(callback)
 });
 ```
